@@ -12,8 +12,8 @@ body {
   margin: auto;
   max-width: 350px;
   max-height: 390px;
-  /* Scale up the entire computer component */
-  transform: scale(2.0);
+  /* To scale up the entire computer component */
+  transform: scale(1.5);
 }
 
 .screenBox {
