@@ -218,8 +218,153 @@ class CentralUnit extends Hardware {
   }
 
   command(screen, command) {
-    if (command != "") {
-      screen.write("Command not supported yet.");
+    var cmd = command.trim().toLowerCase();
+    var args = command.trim().split(' ');
+    var cmdName = args[0].toLowerCase();
+    
+    if (cmd === "") {
+      return;
+    }
+    
+    // Command implementations
+    if (cmd === "crew") {
+      screen.newLine();
+      screen.write("Dr. Khouloud Salameh - Supervisor");
+      screen.write("Riyad Almasri - President");
+      screen.write("Nour Mostafa - Executive");
+      screen.write("Mohammed AlShamsi - Ideator");
+      screen.write("Hazim Anwar - Social Media Manager");
+      screen.write("Zohaa Khan - Graphic Designer");
+      screen.write("Muhammad Mustafa - Photographer/Videographer");
+    }
+    else if (cmd === "club") {
+      screen.newLine();
+      screen.write("The Coding Club is dedicated to fostering a");
+      screen.write("passion for coding and technology among students");
+      screen.write("at the American University of Ras Al Khaimah.");
+      screen.write("Whether you're a beginner or an experienced coder,");
+      screen.write("our club offers a welcoming community where you");
+      screen.write("can learn, collaborate, and unleash your creativity");
+      screen.write("through coding projects and activities.");
+    }
+    else if (cmd === "slogan") {
+      screen.newLine();
+      screen.write("Code. Create. Conquer.");
+    }
+    else if (cmd === "activities") {
+      screen.newLine();
+      screen.write("- Tech Talks");
+      screen.write("- Dev Discussions");
+      screen.write("- Review Rounds");
+      screen.write("- Hackathons");
+      screen.write("- Collabs");
+      screen.write("- Memes");
+      screen.write("- Polls");
+      screen.write("- Typeathons");
+    }
+    else if (cmd === "achievements") {
+      screen.newLine();
+      screen.write("We are Two-Time AURAK's Most Active Student Club Award winner!!!");
+    }
+    else if (cmd === "titans") {
+      screen.newLine();
+      screen.write("A semesterly competitive leaderboard set to foster");
+      screen.write("student engagement in club activities. Top 3 ranks");
+      screen.write("will be awarded Coding Club Tech Titan certificates.");
+      screen.write("Our recent Tech Titans are:");
+      screen.write("1. Abdulghani Sabbagh");
+      screen.write("2. Fares Masarani");
+      screen.write("3. Mohamed Sheikurameez");
+    }
+    else if (cmd === "members") {
+      screen.newLine();
+      screen.write("We are about to hit 300 members!");
+    }
+    else if (cmd === "email") {
+      screen.newLine();
+      screen.write("codingclub2024@aurak.ac.ae");
+    }
+    else if (cmd === "plans") {
+      screen.newLine();
+      screen.write("(No plans listed yet)");
+    }
+    else if (cmd === "perks") {
+      screen.newLine();
+      screen.write("(No perks listed yet)");
+    }
+    else if (cmd === "github") {
+      screen.newLine();
+      var $img = $(document.createElement("img"));
+      $img.attr("src", "assets/github.png");
+      $img.css({
+        "max-width": "200px",
+        "max-height": "150px",
+        "display": "block",
+        "margin": "5px 0"
+      });
+      screen.output.append($img);
+      screen.output.append("<br/>");
+    }
+    else if (cmd === "youtube") {
+      screen.newLine();
+      var $img = $(document.createElement("img"));
+      $img.attr("src", "assets/youtube.png");
+      $img.css({
+        "max-width": "200px",
+        "max-height": "150px",
+        "display": "block",
+        "margin": "5px 0"
+      });
+      screen.output.append($img);
+      screen.output.append("<br/>");
+    }
+    else if (cmd === "discord") {
+      screen.newLine();
+      var $img = $(document.createElement("img"));
+      $img.attr("src", "assets/discord.png");
+      $img.css({
+        "max-width": "200px",
+        "max-height": "150px",
+        "display": "block",
+        "margin": "5px 0"
+      });
+      screen.output.append($img);
+      screen.output.append("<br/>");
+    }
+    else if (cmdName === "echo") {
+      screen.newLine();
+      var echoText = args.slice(1).join(' ');
+      if (echoText) {
+        screen.write(echoText);
+      }
+    }
+    else if (cmd === "cls" || cmd === "clear") {
+      screen.clear();
+      return; // Skip the new line after clearing
+    }
+    else if (cmd === "help") {
+      screen.newLine();
+      screen.write("Available commands:");
+      screen.write("  crew        - Show club crew members");
+      screen.write("  club        - About the Coding Club");
+      screen.write("  slogan      - Club slogan");
+      screen.write("  activities  - Club activities");
+      screen.write("  achievements- Club achievements");
+      screen.write("  titans      - Tech Titans leaderboard");
+      screen.write("  members     - Membership count");
+      screen.write("  email       - Contact email");
+      screen.write("  plans       - Future plans");
+      screen.write("  perks       - Membership perks");
+      screen.write("  github      - Show GitHub QR code");
+      screen.write("  youtube     - Show YouTube QR code");
+      screen.write("  discord     - Show Discord QR code");
+      screen.write("  echo [text] - Echo back text");
+      screen.write("  cls         - Clear the screen");
+      screen.write("  help        - Show this help message");
+    }
+    else {
+      screen.newLine();
+      screen.write("Command not recognized. Type 'help' for available commands.");
     }
   }
 
